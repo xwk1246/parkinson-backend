@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('records', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('mission_id')->constrained()->cascadeOnDelete();
             $table->date('date');
             $table->integer('result');
             $table->enum('status', ['未處理', '已檢閱', '待檢閱']);

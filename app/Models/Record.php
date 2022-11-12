@@ -11,6 +11,7 @@ class Record extends Model
 
     protected $fillable = [
         'user_id',
+        'mission_id',
         'date',
         'result',
         'status',
@@ -20,5 +21,10 @@ class Record extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function mission()
+    {
+        return $this->belongsTo(Mission::class);
     }
 }

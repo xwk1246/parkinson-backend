@@ -26,6 +26,7 @@ class UpdateRecordRequest extends FormRequest
     {
         return [
             'user_id' => ['required', Rule::exists('users', 'id')],
+            'mission_id' => ['required', Rule::exists('missions', 'id')],
             'date' => ['required', 'date'],
             'result' => ['required'],
             'status' => ['required', Rule::in(['已檢閱', '未處理', '待檢閱'])],
