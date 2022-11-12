@@ -21,6 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'gender',
+        'birthday',
+        'personal_id',
+        'phone',
+        'doctor_id'
     ];
 
     /**
@@ -33,6 +38,15 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function doctor()
+    {
+        return $this->belongsTo(User::class, "id", "doctor_id");
+    }
+
+    public function patients()
+    {
+        return $this->hasMany(User::class, "doctor_id", "id");
+    }
     /**
      * The attributes that should be cast.
      *
