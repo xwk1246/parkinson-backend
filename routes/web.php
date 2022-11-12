@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MissionController;
 use App\Http\Controllers\RecordController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('users', UserController::class);
 Route::apiResource('records', RecordController::class);
+Route::apiResource('missions', MissionController::class);
 
 // Route::get('/', function () {
     // return view('welcome');
