@@ -27,7 +27,9 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        return User::create($request->validated());
+        $user = User::create($request->validated());
+        $user->assignRole(is_null($user->doctor_id) ? 'doctor' : 'patient');
+        return $user;
     }
 
     /**
