@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\GetUserInfoRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -65,5 +66,17 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         return $user->delete();
+    }
+
+    /**
+     * Get User Info
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function get(GetUserInfoRequest $request, User $user)
+    {
+       $user->get($request->validate()); 
     }
 }
