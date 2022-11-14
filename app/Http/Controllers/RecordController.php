@@ -26,7 +26,9 @@ class RecordController extends Controller
      */
     public function store(StoreRecordRequest $request)
     {
-        return Record::create($request->validated());
+        $validated = $request->validated();
+        $validated['result'] = json_encode($validated['result']);
+        return Record::create($validated);
     }
 
     /**
@@ -49,7 +51,9 @@ class RecordController extends Controller
      */
     public function update(UpdateRecordRequest $request, Record $record)
     {
-        return $record->update($request->validated());
+        $validated = $request->validated();
+        $validated['result'] = json_encode($validated['result']);
+        return $record->update($validated);
     }
 
     /**
