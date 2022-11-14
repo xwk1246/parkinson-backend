@@ -11,7 +11,7 @@ class Mission extends Model
 
     protected $fillable = [
         'user_id',
-        'date'
+        'due_date'
     ];
 
     public function records()
