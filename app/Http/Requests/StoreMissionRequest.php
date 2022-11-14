@@ -26,7 +26,7 @@ class StoreMissionRequest extends FormRequest
     {
         return [
             'user_id' => ['required', Rule::exists('users', 'id')],
-            'date' => ['required', 'date']
+            'due_date' => ['required', 'date']
         ];
     }
 }

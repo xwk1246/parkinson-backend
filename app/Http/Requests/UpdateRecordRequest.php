@@ -27,9 +27,10 @@ class UpdateRecordRequest extends FormRequest
         return [
             'user_id' => ['required', Rule::exists('users', 'id')],
             'mission_id' => ['required', Rule::exists('missions', 'id')],
-            'date' => ['required', 'date'],
+            'submit_date' => ['required', 'date'],
             'result' => ['required'],
             'status' => ['required', Rule::in(['已檢閱', '未處理', '待檢閱'])],
+            'category' => ['required', Rule::in([1, 2, 3, 4])],
             'doctor_comment' => ['required', "max:255", 'string']
         ];
     }
