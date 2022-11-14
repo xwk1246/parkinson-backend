@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('mission_id')->constrained()->cascadeOnDelete();
-            $table->date('date');
-            $table->integer('result');
+            $table->date('submit_date');
+            $table->json('result');
             $table->enum('status', ['未處理', '已檢閱', '待檢閱']);
+            $table->enum('category', [1, 2, 3, 4]);
             $table->string('doctor_comment');
             $table->timestamps();
         });
