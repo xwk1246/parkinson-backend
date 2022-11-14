@@ -37,7 +37,7 @@ class CreateNewUser implements CreatesNewUsers
             'doctor_id' => [Rule::exists('users', 'id'), 'nullable'],
         ])->validate();
 
-        return User::create([
+        $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'phone' => $input['phone'],
@@ -47,5 +47,9 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
             'doctor_id' => $input['doctor_id']
         ]);
+
+        $user->assignRole(is_null($user->doctor_id) ? 'doctor' : 'patient');
+
+        return $user;
     }
 }
