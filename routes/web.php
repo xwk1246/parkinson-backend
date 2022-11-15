@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\AssocRecordController;
 use App\Http\Controllers\MissionController;
 use App\Http\Controllers\RecordController;
 use App\Http\Controllers\UserController;
@@ -23,6 +24,7 @@ Route::apiResource('missions', MissionController::class);
 
 Route::post('assign-mission', [DoctorController::class, 'assign']);
 
+Route::apiResource('assoc-record',AssocRecordController::class);
 // Route::get('/', function () {
     // return view('welcome');
 // });
