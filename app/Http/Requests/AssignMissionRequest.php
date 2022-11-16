@@ -28,7 +28,7 @@ class AssignMissionRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => ['required', function($attribute, $value, $fail) {
+            'user_id' => ['required', function ($attribute, $value, $fail) {
                 $user = User::find($value);
                 if (!$user || !$user->hasRole('patient')) {
                     return $fail('The user id must be a patient\'s id');
