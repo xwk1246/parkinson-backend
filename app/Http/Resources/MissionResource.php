@@ -16,8 +16,8 @@ class MissionResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'date' => $this->date,
-            'record' => RecordResource::collection($this->records),
+            'due_date' => $this->due_date,
+            'records' => RecordResource::collection($this->records),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ] ;
