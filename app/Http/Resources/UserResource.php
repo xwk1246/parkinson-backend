@@ -21,8 +21,6 @@ class UserResource extends JsonResource
             'personal_id' => $this->personal_id,
             'gender' => $this -> gender,
             'missions' => MissionResource::collection($this->missions),
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at
         ] ;
     }
 }
