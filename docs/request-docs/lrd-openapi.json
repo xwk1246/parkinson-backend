@@ -1502,7 +1502,7 @@
                                         "nullable": false,
                                         "format": "object"
                                     },
-                                    "submit_date": {
+                                    "submit_time": {
                                         "type": "object",
                                         "nullable": false,
                                         "format": "object"
@@ -1906,7 +1906,7 @@
                                         "nullable": false,
                                         "format": "object"
                                     },
-                                    "submit_date": {
+                                    "submit_time": {
                                         "type": "object",
                                         "nullable": false,
                                         "format": "object"
