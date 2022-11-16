@@ -21,6 +21,7 @@ class UserResource extends JsonResource
             'personal_id' => $this->personal_id,
             'gender' => $this -> gender,
             'missions' => MissionResource::collection($this->missions),
+            'newest_submit' => $this -> newest_submit
         ] ;
     }
 }

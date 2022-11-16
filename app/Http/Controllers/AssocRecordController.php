@@ -11,6 +11,7 @@ use App\Models\Record;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class AssocRecordController extends Controller
 {
     /**
@@ -21,20 +22,22 @@ class AssocRecordController extends Controller
     public function index()
     {
         $login_user = Auth::user();
-        if(is_null($login_user)){
+        if (is_null($login_user)) {
             //For Devlopment debug.
-            return new Exception('[TEST]You are not logged in',500);
+            return new Exception('[TEST]You are not logged in', 500);
         }
         $user_id = $login_user->id;
-        if(is_null($login_user->doctor_id)){
+        if (is_null($login_user->doctor_id)) {
             //Doctor
-            $patients = User::where('doctor_id',$user_id)->get();
+
+            $patients = User::where('doctor_id', $user_id)
+                ->addSelect(['newest_submit' => Record::select('submit_date')->whereColumn('records.user_id', 'users.id')->orderByDesc('submit_date')->limit(1)])
+                ->get();
             return UserResource::collection($patients);
-        }else{
+        } else {
             //Patient
-            $user = User::where('id',$user_id)->first();
+            $user = User::where('id', $user_id)->first();
             return UserResource::make($user);
         }
-        
     }
 }
