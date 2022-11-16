@@ -16,7 +16,7 @@ class RecordResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'submit_date' => $this->submit_date,
+            'submit_time' => $this->submit_time,
             'result' => $this->result,
             'status' => $this->status,
             'category' => $this->category,

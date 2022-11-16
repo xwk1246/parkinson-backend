@@ -25,7 +25,7 @@ class DoctorController extends Controller
             $record = new Record();
             $record->user_id = $mission->user_id;
             $record->mission_id = $mission->id;
-            $record->submit_date = $mission->created_at;
+            //$record->submit_time = $mission->created_at;
             $record->result = '""';
             $record->status = '未處理';
             $record->doctor_comment = '';

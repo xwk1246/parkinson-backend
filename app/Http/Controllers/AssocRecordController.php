@@ -31,7 +31,7 @@ class AssocRecordController extends Controller
             //Doctor
 
             $patients = User::where('doctor_id', $user_id)
-                ->addSelect(['newest_submit' => Record::select('submit_date')->whereColumn('records.user_id', 'users.id')->orderByDesc('submit_date')->limit(1)])
+                ->addSelect(['newest_submit' => Record::select('submit_time')->whereColumn('records.user_id', 'users.id')->orderByDesc('submit_time')->limit(1)])
                 ->get();
             return UserResource::collection($patients);
         } else {
