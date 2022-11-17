@@ -18,6 +18,7 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => 'assign-mission']);
         Permission::create(['name' => 'add-patient']);
         Permission::create(['name' => 'add-comment']);
+        Permission::create(['name' => 'show-patients-record']);
         // patient
         Permission::create(['name' => 'upload-video']);
 
