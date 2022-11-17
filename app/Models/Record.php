@@ -12,7 +12,7 @@ class Record extends Model
     protected $fillable = [
         'user_id',
         'mission_id',
-        'submit_date',
+        'submit_time',
         'category',
         'result',
         'status',

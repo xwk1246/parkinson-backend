@@ -43,10 +43,22 @@ class User extends Authenticatable
     {
         return $this->belongsTo(User::class, "id", "doctor_id");
     }
+    public function isDoctor(){
+        if(is_null($this->doctor_id)){
+            return true;
+        }
+        return false;
+    }
 
     public function patients()
     {
         return $this->hasMany(User::class, "doctor_id", "id");
+    }
+    public function missions(){
+        return $this->hasMany(Mission::class);
+    }
+    public function records(){
+        return $this->hasMany(Record::class);
     }
     /**
      * The attributes that should be cast.

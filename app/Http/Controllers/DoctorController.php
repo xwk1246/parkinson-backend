@@ -15,24 +15,22 @@ class DoctorController extends Controller
      * @param  \App\Http\Requests\AssignMissionRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function assign(AssignMissionRequest $request) {
-        $mission = new Mission();
-        $mission->user_id = $request->user_id;
-        $mission->due_date = $request->due_date;
-        $mission->save();
+    public function assign(AssignMissionRequest $request)
+    {
 
+        $validated = $request->validated();
+        $mission = Mission::create(['user_id' => $validated['user_id'], 'due_date' => $validated['due_date']]);
         foreach ($request->categories as $value) {
-            $record = new Record();
-            $record->user_id = $mission->user_id;
-            $record->mission_id = $mission->id;
-            $record->submit_date = $mission->created_at;
-            $record->result = '""';
-            $record->status = '未處理';
-            $record->doctor_comment = '';
-            $record->category = $value;
-            $record->save();
+            Record::create([
+                'user_id' => $mission->user_id,
+                'mission_id' => $mission->id,
+                'result' => '""',
+                'status' => "未處理",
+                'doctor_comment' => '',
+                'category' => $value
+            ]);
         }
 
-        return $mission;
+        return $mission->load("records");
     }
 }
