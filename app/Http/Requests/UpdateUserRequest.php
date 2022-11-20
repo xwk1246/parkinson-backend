@@ -36,7 +36,7 @@ class UpdateUserRequest extends FormRequest
                 'max:255',
                 Rule::unique(User::class)->ignore($id),
             ],
-            'password' => ['required', 'string', new Password, 'confirmed'],
+            'password' => ['required', 'string', new Password],
             'phone' => ['required', 'max:255'],
             'gender' => ['required', 'max:255', Rule::in(['male', 'female', 'unknown'])],
             'birthday' => ['required', 'max:255', 'date', 'before:today'],

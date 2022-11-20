@@ -23,10 +23,12 @@ Route::apiResource('users', UserController::class);
 Route::apiResource('records', RecordController::class);
 Route::apiResource('missions', MissionController::class);
 
-Route::post('assign-mission', [DoctorController::class, 'assign']);
-
+// general
 Route::get('assoc-record', [GeneralController::class, 'record']);
+
+// doctor
+Route::post('assign-mission', [DoctorController::class, 'assign']);
+Route::post('add-patient', [DoctorController::class, 'addPatient']);
+
+// patient
 Route::post('upload-video', [PatientController::class, 'uploadVideo']);
-// Route::get('/', function () {
-    // return view('welcome');
-// });
