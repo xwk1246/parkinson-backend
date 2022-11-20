@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-use App\Http\Requests\GetUserInfoRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -75,8 +74,9 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function get(GetUserInfoRequest $request, User $user)
+    public function get(Request $request)
     {
-       $user->get($request->validate()); 
+      return $request->user();
+      //$user->get($request->validate());
     }
 }
