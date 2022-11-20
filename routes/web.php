@@ -25,6 +25,7 @@ Route::apiResource('missions', MissionController::class);
 Route::post('assign-mission', [DoctorController::class, 'assign']);
 
 Route::get('assoc-record', [GeneralController::class, 'record']);
+Route::get('user-info', [GeneralController::class, 'info']);
 // Route::get('/', function () {
     // return view('welcome');
 // });

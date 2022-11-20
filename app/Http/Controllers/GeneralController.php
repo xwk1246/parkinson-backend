@@ -10,6 +10,8 @@ namespace App\Http\Controllers;
 // use App\Models\Record;
 use Exception;
 use Illuminate\Http\Request;
+use App\Http\Requests\GetUserInfoRequest;
+use App\Models\User;
 // use Illuminate\Support\Facades\Auth;
 
 class GeneralController extends Controller
@@ -41,5 +43,18 @@ class GeneralController extends Controller
             // $user = User::where('id', $user_id)->first();
             // return UserResource::make($user);
         }
+    }
+    
+     /**
+     * Get User Info
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function get(Request $request)
+    {
+        return $request->user();
+        //$user->get($request->validate()); 
     }
 }
