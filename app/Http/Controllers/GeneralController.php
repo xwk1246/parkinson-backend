@@ -28,7 +28,7 @@ class GeneralController extends Controller
             return new Exception('[TEST]You are not logged in', 500);
         }
         // $user_id = $loginUser->id;
-        if ($loginUser->can('show-patients-record')) {
+        if ($loginUser->isDoctor()) {
             //Doctor
             return $loginUser->load('patients.missions.records');
             // $patients = User::where('doctor_id', $user_id)
