@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('mission_id')->constrained()->cascadeOnDelete();
             $table->datetime('submit_time')->nullable();
+            $table->string('location');
             $table->json('result');
             $table->enum('status', ['未處理', '已檢閱', '待檢閱']);
             $table->enum('category', [1, 2, 3, 4]);

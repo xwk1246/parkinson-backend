@@ -14,6 +14,7 @@ class Record extends Model
         'mission_id',
         'submit_time',
         'category',
+        'location',
         'result',
         'status',
         'doctor_comment'
