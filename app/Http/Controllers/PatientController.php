@@ -40,7 +40,7 @@ class PatientController extends Controller
                 $record->addMedia(storage_path('app/tmp/' . $video['serverId'] . '/' . $video['filename']))->toMediaCollection('videos');
                 rmdir(storage_path('app/tmp/' . $video['serverId']));
             } catch (\Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist $e) {
-                return response()->json('file not exist on server please try again', 500);
+                return response()->json('file not exist on server please try again', 400);
             }
         }
         return $record->load("media");
