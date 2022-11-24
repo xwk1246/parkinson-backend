@@ -31,7 +31,7 @@ class UploadRecordRequest extends FormRequest
             'location' => ['required', 'string'],
             'submit_time' => ['required', 'date'],
             'mission_id' => ['required', Rule::exists('missions', 'id'), new RecordNotSubmittedRule],
-            'video_uuid' => ['required'],
+            'video' => ['required', 'array'],
         ];
     }
 }

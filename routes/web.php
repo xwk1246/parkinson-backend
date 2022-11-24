@@ -26,7 +26,9 @@ Route::apiResource('missions', MissionController::class);
 Route::post('assign-mission', [DoctorController::class, 'assign']);
 
 Route::get('assoc-record', [GeneralController::class, 'record']);
+// patient
 Route::post('upload-video', [PatientController::class, 'uploadVideo']);
+Route::post('upload-record', [PatientController::class, 'uploadRecord']);
 // Route::get('/', function () {
     // return view('welcome');
 // });
