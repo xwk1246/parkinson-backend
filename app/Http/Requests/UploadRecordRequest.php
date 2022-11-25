@@ -16,7 +16,7 @@ class UploadRecordRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user() && $this->user()->can('upload-record');
     }
 
     /**

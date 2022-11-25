@@ -31,9 +31,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('records', RecordController::class);
     Route::apiResource('missions', MissionController::class);
 
+    // general
+    Route::get('user-info', [GeneralController::class, 'info']);
+    Route::get('assoc-record', [GeneralController::class, 'record']);
+
+    // doctor
+    Route::post('add-patient', [DoctorController::class, 'addPatient']);
     Route::post('assign-mission', [DoctorController::class, 'assign']);
 
-    Route::get('assoc-record', [GeneralController::class, 'record']);
     // patient
     Route::post('upload-video', [PatientController::class, 'uploadVideo']);
     Route::post('upload-record', [PatientController::class, 'uploadRecord']);
