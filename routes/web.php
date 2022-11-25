@@ -33,3 +33,4 @@ Route::post('add-patient', [DoctorController::class, 'addPatient']);
 
 // patient
 Route::post('upload-video', [PatientController::class, 'uploadVideo']);
+Route::post('upload-record', [PatientController::class, 'uploadRecord']);
