@@ -66,17 +66,4 @@ class UserController extends Controller
     {
         return $user->delete();
     }
-
-    /**
-     * Get User Info
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function get(Request $request)
-    {
-      return $request->user();
-      //$user->get($request->validate());
-    }
 }

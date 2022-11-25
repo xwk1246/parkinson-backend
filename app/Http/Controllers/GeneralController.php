@@ -10,9 +10,6 @@ namespace App\Http\Controllers;
 // use App\Models\Record;
 use Exception;
 use Illuminate\Http\Request;
-use App\Http\Requests\GetUserInfoRequest;
-use App\Models\User;
-// use Illuminate\Support\Facades\Auth;
 
 class GeneralController extends Controller
 {
@@ -52,9 +49,8 @@ class GeneralController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function get(Request $request)
+    public function info(Request $request)
     {
         return $request->user();
-        //$user->get($request->validate()); 
     }
 }
