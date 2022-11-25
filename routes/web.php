@@ -24,6 +24,7 @@ Route::apiResource('records', RecordController::class);
 Route::apiResource('missions', MissionController::class);
 
 // general
+Route::get('user-info', [GeneralController::class, 'info']);
 Route::get('assoc-record', [GeneralController::class, 'record']);
 
 // doctor
