@@ -39,25 +39,35 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function isDoctor()
+    {
+        if ($this->hasRole('doctor'))
+            return true;
+        return false;
+    }
+
+    public function isPatient()
+    {
+        if ($this->hasRole('patient'))
+            return true;
+        return false;
+    }
+
     public function doctor()
     {
         return $this->belongsTo(User::class, "id", "doctor_id");
-    }
-    public function isDoctor(){
-        if(is_null($this->doctor_id)){
-            return true;
-        }
-        return false;
     }
 
     public function patients()
     {
         return $this->hasMany(User::class, "doctor_id", "id");
     }
-    public function missions(){
+    public function missions()
+    {
         return $this->hasMany(Mission::class);
     }
-    public function records(){
+    public function records()
+    {
         return $this->hasMany(Record::class);
     }
     /**

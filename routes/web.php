@@ -3,6 +3,7 @@
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\MissionController;
+use App\Http\Controllers\PatientController;
 use App\Http\Controllers\RecordController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -22,10 +23,13 @@ Route::apiResource('users', UserController::class);
 Route::apiResource('records', RecordController::class);
 Route::apiResource('missions', MissionController::class);
 
-Route::post('assign-mission', [DoctorController::class, 'assign']);
-
-Route::get('assoc-record', [GeneralController::class, 'record']);
+// general
 Route::get('user-info', [GeneralController::class, 'info']);
-// Route::get('/', function () {
-    // return view('welcome');
-// });
+Route::get('assoc-record', [GeneralController::class, 'record']);
+
+// doctor
+Route::post('assign-mission', [DoctorController::class, 'assign']);
+Route::post('add-patient', [DoctorController::class, 'addPatient']);
+
+// patient
+Route::post('upload-video', [PatientController::class, 'uploadVideo']);
