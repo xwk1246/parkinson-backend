@@ -34,6 +34,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // general
     Route::get('user-info', [GeneralController::class, 'info']);
     Route::get('assoc-record', [GeneralController::class, 'record']);
+    Route::get('video/{recordId}', [GeneralController::class, 'video']);
 
     // doctor
     Route::post('add-patient', [DoctorController::class, 'addPatient']);
