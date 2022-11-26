@@ -48,7 +48,7 @@ class DoctorController extends Controller
         $password = Str::random(8);
         $validated['doctor_id'] = $request->user()->id;
         $validated['password'] = Hash::make($password);
-        User::create($validated);
+        User::create($validated)->assignRole('patient');
 
         return $password;
     }

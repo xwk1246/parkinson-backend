@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('users')->delete();
 
@@ -29,8 +29,6 @@ class UsersTableSeeder extends Seeder
             'phone' => '0987654321',
             'email_verified_at' => NULL,
             'password' => '$2y$10$ayS3uzAevM.qx14ECPx2mehnfNC7ZUmVAZ8qr4mvguECAS2Gi6q7G',
-            'two_factor_secret' => NULL,
-            'two_factor_recovery_codes' => NULL,
             'doctor_id' => NULL,
             'remember_token' => NULL,
             'created_at' => '2022-11-12 10:20:36',
@@ -47,8 +45,6 @@ class UsersTableSeeder extends Seeder
             'phone' => '0987654321',
             'email_verified_at' => NULL,
             'password' => '$2y$10$IpzmHoQ2SGecMW1kTv716uSDMd2Ce3tSYq.lLlI2qVcBPJGvE/oUi',
-            'two_factor_secret' => NULL,
-            'two_factor_recovery_codes' => NULL,
             'doctor_id' => 1,
             'remember_token' => NULL,
             'created_at' => '2022-11-13 16:11:56',
@@ -65,8 +61,6 @@ class UsersTableSeeder extends Seeder
             'phone' => '0987654321',
             'email_verified_at' => NULL,
             'password' => '$2y$10$drJThHIz5ctnMXGx/j8DFemZlN1OinTRbHtY/1fzBSe.A9GmwmSIS',
-            'two_factor_secret' => NULL,
-            'two_factor_recovery_codes' => NULL,
             'doctor_id' => 1,
             'remember_token' => NULL,
             'created_at' => '2022-11-15 03:22:42',
