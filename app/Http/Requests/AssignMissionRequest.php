@@ -30,7 +30,7 @@ class AssignMissionRequest extends FormRequest
         return [
             'user_id' => ['required', function ($attribute, $value, $fail) {
                 $user = User::find($value);
-                if (!$user || !$user->hasRole('patient')) {
+                if (!$user || !$user->isPatient()) {
                     return $fail('The user id must be a patient\'s id');
                 }
                 if ($user->doctor_id != Auth::id()) {

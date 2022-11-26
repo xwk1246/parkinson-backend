@@ -2,33 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
 class AuthController extends Controller
 {
-    public function register(Request $request)
+    /**
+     * Register a user.
+     * 
+     * @param \App\Http\Requests\RegisterRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function register(RegisterRequest $request)
     {
-        $validated = Validator::make($request->all(), [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => [
-                'required',
-                'string',
-                'email',
-                'max:255',
-                Rule::unique(User::class),
-            ],
-            'password' => ['required', 'string'],
-            'phone' => ['required', 'max:255'],
-            'gender' => ['required', 'max:255', Rule::in(['male', 'female', 'unknown'])],
-            'birthday' => ['required', 'max:255', 'date', 'before:today'],
-            'personal_id' => ['required', 'max:15', Rule::unique(User::class)],
-            'doctor_id' => [Rule::exists('users', 'id'), 'nullable'],
-        ])->validate();
+        $validated = $request->validated();
 
         $user = User::create([
             'name' => $validated['name'],
@@ -41,17 +32,22 @@ class AuthController extends Controller
             'doctor_id' => $validated['doctor_id']
         ]);
         $user->assignRole(is_null($user->doctor_id) ? 'doctor' : 'patient');
+
         return response()->json([
             'message' => 'Registered Successfully',
             'token' => $user->createToken("API TOKEN")->plainTextToken
         ], 200);
     }
-    public function login(Request $request)
+
+    /**
+     * Login a user.
+     * 
+     * @param \App\Http\Requests\LoginRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function login(LoginRequest $request)
     {
-        $validated = Validator::make($request->all(), [
-            'personal_id' => ['required'],
-            'password' => ['required', 'string'],
-        ])->validate();
+        $validated = $request->validated();
 
         if (!Auth::attempt($validated)) {
             return response()->json(['message' => 'credentials mismatch'], 401);
@@ -66,6 +62,13 @@ class AuthController extends Controller
             200
         );
     }
+
+    /**
+     * Logout a user.
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function logout(Request $request)
     {
         $request->user()->tokens()->delete();
