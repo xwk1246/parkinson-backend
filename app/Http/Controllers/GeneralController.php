@@ -16,7 +16,7 @@ class GeneralController extends Controller
      */
     public function info(Request $request)
     {
-        return $request->user();
+        return $request->user()->load('roles');
     }
 
     /**
