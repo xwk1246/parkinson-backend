@@ -13,6 +13,9 @@ class PatientController extends Controller
 {
     public function uploadVideo(UploadVideoRequest $request)
     {
+        if (!$request->hasFile('video')) {
+            return response()->json('video field is required', 422);
+        }
         if ($request->hasFile('video')) {
             $file = $request->file('video');
             $filename = $file->getClientOriginalName();

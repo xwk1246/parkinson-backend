@@ -23,8 +23,6 @@ class UploadVideoRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'video' => ['required', 'file', 'mimes:mp4']
-        ];
+        return [];
     }
 }
