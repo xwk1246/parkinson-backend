@@ -19,9 +19,9 @@ return new class extends Migration
             $table->foreignId('mission_id')->constrained()->cascadeOnDelete();
             $table->datetime('submit_time')->nullable();
             $table->string('location')->nullable();
-            $table->json('result');
-            $table->enum('status', ['未處理', '已檢閱', '待檢閱']);
-            $table->enum('category', [1, 2, 3, 4]);
+            $table->json('result')->nullable();
+            $table->enum('status', ['未上傳','未處理', '已檢閱', '待檢閱'])->default('未上傳');
+            $table->enum('category', ['手部拍打', '手部捏握', '手掌翻面', '抬腳']);
             $table->string('doctor_comment');
             $table->timestamps();
         });
