@@ -13,16 +13,13 @@ class PatientController extends Controller
 {
     public function uploadVideo(UploadVideoRequest $request)
     {
-        if (!$request->hasFile('video')) {
-            return response()->json('video field is required', 422);
-        }
         if ($request->hasFile('video')) {
             $file = $request->file('video');
             $filename = $file->getClientOriginalName();
             $folder = uniqid() . '-' . now()->timestamp;
             $file->storeAs('tmp/' . $folder, $filename);
 
-            return response()->json($folder)->header('Content-Type', 'text/plain');
+            return response()->json($folder)->header('Content-Type', 'text/plain')->header('Access-control-allow-origin', '*');
         }
         return '';
     }
