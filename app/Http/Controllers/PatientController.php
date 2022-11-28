@@ -33,7 +33,8 @@ class PatientController extends Controller
             'location' => $validated['location'],
             'submit_time' => $validated['submit_time'],
             'category' => $validated['category'],
-            'mission_id' => $validated['mission_id']
+            'mission_id' => $validated['mission_id'],
+            'status' => '未處理'
         ]);
         foreach ($validated['video'] as $key => $video) {
             try {
