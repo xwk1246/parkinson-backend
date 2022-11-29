@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UploadVideoRequest;
 use App\Http\Requests\UploadRecordRequest;
+
 use App\Models\Record;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -46,4 +47,6 @@ class PatientController extends Controller
         }
         return $record->load("media");
     }
+
+    
 }
