@@ -46,6 +46,13 @@ class MissionsTableSeeder extends Seeder
                 'user_id' => 3,
                 'due_date' => '2022-11-30',
                 'created_at' => '2022-11-13 08:00:00',
+            ),
+            4 =>
+            array (
+                'id' => 5,
+                'user_id' => 5,
+                'due_date' => '2022-11-30',
+                'created_at' => '2022-11-13 08:00:00',
             )
         ));
         

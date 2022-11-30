@@ -164,5 +164,35 @@ class RecordsTableSeeder extends Seeder
             'created_at' => '2022-11-13 08:00:00',
             'category' => '手掌翻面'
         ]);
+        Record::create([
+            'id' => 13,
+            'user_id' => 5,
+            'mission_id' => 5,
+            'result' => NULL,
+            'status' => '未上傳',
+            'doctor_comment' => '',
+            'created_at' => '2022-11-13 08:00:00',
+            'category' => '手部拍打'
+        ]);
+        Record::create([
+            'id' => 14,
+            'user_id' => 5,
+            'mission_id' => 5,
+            'result' => NULL,
+            'status' => '未上傳',
+            'doctor_comment' => '',
+            'created_at' => '2022-11-13 08:00:00',
+            'category' => '手部捏握'
+        ]);
+        Record::create([
+            'id' => 15,
+            'user_id' => 5,
+            'mission_id' => 5,
+            'result' => NULL,
+            'status' => '未上傳',
+            'doctor_comment' => '',
+            'created_at' => '2022-11-13 08:00:00',
+            'category' => '手掌翻面'
+        ]);
     }
 }
