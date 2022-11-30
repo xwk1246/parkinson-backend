@@ -2,12 +2,13 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Record;
 use App\Models\User;
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class AssignMissionRequest extends FormRequest
+class UpdateCommentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,8 +17,8 @@ class AssignMissionRequest extends FormRequest
      */
     public function authorize()
     {
-        $user = Auth::user();
-        return !!$user && $user->can('assign-mission');
+        $user = $this->user();
+        return !!$user && $user->can('add-comment');
     }
 
     /**
@@ -28,8 +29,8 @@ class AssignMissionRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => ['required', function ($attribute, $value, $fail) {
-                $user = User::find($value);
+            'record_id' => ['required', Rule::exists('records', 'id'),function ($attribute, $value, $fail) {
+                $user = Record::find($value)->user;
                 if (!$user || !$user->isPatient()) {
                     return $fail('The user id must be a patient\'s id');
                 }
@@ -37,9 +38,8 @@ class AssignMissionRequest extends FormRequest
                     return $fail('This patient id doesn\'t belongs to this doctor');
                 }
             }],
-            'due_date' => ['required', 'date', 'after:today'],
-            'categories' => ['required', 'array'],
-            'categories.*' => ['required', 'string', Rule::in(['手部拍打', '手部捏握', '手掌翻面', '抬腳']), 'distinct'],
+            'status' => ['required',Rule::in(['已檢閱', '待檢閱'])],
+            'doctor_comment' => ['required',"max:255", 'string']
         ];
     }
 }

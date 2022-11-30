@@ -39,6 +39,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // doctor
     Route::post('add-patient', [DoctorController::class, 'addPatient']);
     Route::post('assign-mission', [DoctorController::class, 'assign']);
+    Route::patch('update-comment',[DoctorController::class,'updateComment']);
 
     // patient
     Route::post('upload-video', [PatientController::class, 'uploadVideo']);

@@ -30,8 +30,8 @@ class UpdateRecordRequest extends FormRequest
             'submit_time' => ['required', 'datetime'],
             'location' => ['required'],
             'result' => ['required'],
-            'status' => ['required', Rule::in(['已檢閱', '未處理', '待檢閱'])],
-            'category' => ['required', Rule::in([1, 2, 3, 4])],
+            'status' => ['required', Rule::in(['未上傳','未處理', '已檢閱', '待檢閱'])],
+            'category' => ['required', Rule::in(['手部拍打', '手部捏握', '手掌翻面', '抬腳'])],
             'doctor_comment' => ['required', "max:255", 'string']
         ];
     }

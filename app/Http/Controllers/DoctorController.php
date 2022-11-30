@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AddPatientRequest;
 use App\Http\Requests\AssignMissionRequest;
+use App\Http\Requests\UpdateCommentRequest;
+
 use App\Models\Mission;
 use App\Models\Record;
 use App\Models\User;
@@ -26,8 +28,7 @@ class DoctorController extends Controller
             Record::create([
                 'user_id' => $mission->user_id,
                 'mission_id' => $mission->id,
-                'result' => '""',
-                'status' => "未處理",
+                'result' => null,
                 'doctor_comment' => '',
                 'category' => $value
             ]);
@@ -51,5 +52,21 @@ class DoctorController extends Controller
         User::create($validated)->assignRole('patient');
 
         return $password;
+    }
+    /**
+     * Store a mission nad some records due to categories.
+     * 
+     * @param  \App\Http\Requests\UpdateCommentRequest $request
+     * @return \Illuminate\Http\Response
+     */
+    public function updateComment(UpdateCommentRequest $request)
+    {
+        $validated = $request->validated();
+        $record = Record::where('id',$validated['record_id'])->first();
+        $record->update([
+            'status' => $validated['status'],
+            'doctor_comment' => $validated['doctor_comment'],
+        ]);
+        return $record;
     }
 }
