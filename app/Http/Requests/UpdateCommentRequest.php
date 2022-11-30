@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -14,7 +15,7 @@ class UpdateCommentRequest extends FormRequest
      */
     public function authorize()
     {
-        $user = Auth::user();
+        $user = $this->user();
         return !!$user && $user->can('add-comment');
     }
 
