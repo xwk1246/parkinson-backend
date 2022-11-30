@@ -28,8 +28,7 @@ class DoctorController extends Controller
             Record::create([
                 'user_id' => $mission->user_id,
                 'mission_id' => $mission->id,
-                'result' => '""',
-                'status' => "未處理",
+                'result' => null,
                 'doctor_comment' => '',
                 'category' => $value
             ]);
