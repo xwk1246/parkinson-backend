@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Record;
+use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
+use Mockery\Undefined;
 
 class GeneralController extends Controller
 {
@@ -25,7 +27,7 @@ class GeneralController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function record(Request $request)
+    public function record(Request $request, $patientId = null)
     {
         $loginUser = $request->user();
         if (!$loginUser) {
@@ -35,7 +37,16 @@ class GeneralController extends Controller
 
         if ($loginUser->isDoctor()) {
             //Doctor
-            return $loginUser->load('patients.missions.records');
+            if($patientId !== null){
+                $patient = User::Find($patientId);
+                if($patient->doctor_id === $loginUser->id){
+                    return $patient->load('missions.records');
+                }else{
+                    return response()->json(['message' => 'The user you requested is not your patient'], 400);
+                }
+            }else{
+                return $loginUser->load('patients.missions.records');
+            }
         } else {
             //Patient
             return $loginUser->load('missions.records');
