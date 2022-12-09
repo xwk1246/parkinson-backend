@@ -39,7 +39,7 @@ class AssignMissionRequest extends FormRequest
             }],
             'due_date' => ['required', 'date', 'after:today'],
             'categories' => ['required', 'array'],
-            'categories.*' => ['required', 'string', Rule::in(['手部拍打', '手部捏握', '手掌翻面', '抬腳']), 'distinct'],
+            'categories.*' => ['required', 'string', Rule::in(['手指捏握', '手部抓握', '手掌翻面', '抬腳']), 'distinct'],
         ];
     }
 }
