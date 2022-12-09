@@ -32,7 +32,7 @@ class PatientController extends Controller
 
         $record->update([
             'location' => $validated['location'],
-            'submit_time' => $validated['submit_time'],
+            'submit_time' => $datetime,
             'category' => $validated['category'],
             'mission_id' => $validated['mission_id'],
             'status' => '未處理'
@@ -47,6 +47,4 @@ class PatientController extends Controller
         }
         return $record->load("media");
     }
-
-    
 }
