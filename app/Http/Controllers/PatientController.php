@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UploadVideoRequest;
 use App\Http\Requests\UploadRecordRequest;
-
+use App\Jobs\Openpose;
 use App\Models\Record;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Date;
 
 class PatientController extends Controller
 {
@@ -41,6 +39,9 @@ class PatientController extends Controller
             try {
                 $record->addMedia(storage_path('app/tmp/' . $video['serverId'] . '/' . $video['filename']))->toMediaCollection('videos');
                 rmdir(storage_path('app/tmp/' . $video['serverId']));
+
+                $openposeJob = (new Openpose($record->id))->onQueue('openpose');
+                $this->dispatch($openposeJob);
             } catch (\Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist $e) {
                 return response()->json('file not exist on server please try again', 400);
             }

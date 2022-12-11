@@ -214,4 +214,5 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
+    'use_lab_api' => (bool) env('USE_LAB_API', false),
 ];
