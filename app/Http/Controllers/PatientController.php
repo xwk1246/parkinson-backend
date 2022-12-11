@@ -28,7 +28,7 @@ class PatientController extends Controller
     {
         $validated = $request->validated();
         $datetime = Carbon::parse($validated['submit_time'])->toDatetimeString();
-        $record = Record::where('mission_id', $validated['mission_id'])->first();
+        $record = Record::where('mission_id', $validated['mission_id'])->where('category', $validated['category'])->first();
 
         $record->update([
             'location' => $validated['location'],
