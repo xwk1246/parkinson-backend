@@ -30,8 +30,8 @@ class StoreRecordRequest extends FormRequest
             'submit_time' => ['required', 'datetime'],
             'location' => ['required'],
             'result' => ['required'],
-            'status' => ['required', Rule::in(['未上傳','已檢閱', '未處理', '待檢閱'])],
-            'category' => ['required', Rule::in(['手部拍打', '手部捏握', '手掌翻面', '抬腳']), Rule::unique('records', 'category')->where(fn ($query) => $query->where('mission_id', $this->input('mission_id')))],
+            'status' => ['required', Rule::in(['未上傳', '已檢閱', '未處理', '待檢閱'])],
+            'category' => ['required', Rule::in(['手指捏握', '手部抓握', '手掌翻面', '抬腳']), Rule::unique('records', 'category')->where(fn ($query) => $query->where('mission_id', $this->input('mission_id')))],
             'doctor_comment' => ['required', "max:255", 'string']
         ];
     }

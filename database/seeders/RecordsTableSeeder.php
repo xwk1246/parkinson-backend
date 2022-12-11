@@ -15,8 +15,8 @@ class RecordsTableSeeder extends Seeder
      */
     public function run()
     {
-        
-        //'手部拍打', '手部捏握', '手掌翻面', '抬腳'
+
+        //'手指捏握', '手部抓握', '手掌翻面', '抬腳'
         \DB::table('records')->delete();
 
         Record::create([
@@ -27,8 +27,8 @@ class RecordsTableSeeder extends Seeder
             'status' => '未上傳',
             'doctor_comment' => '',
             'created_at' => '2022-11-13 08:00:00',
-            
-            'category' => '手部拍打'
+
+            'category' => '手指捏握'
         ]);
         Record::create([
             'id' => 2,
@@ -40,8 +40,8 @@ class RecordsTableSeeder extends Seeder
             'status' => '待檢閱',
             'doctor_comment' => '',
             'created_at' => '2022-11-13 08:00:00',
-            
-            'category' => '手部捏握'
+
+            'category' => '手部抓握'
         ]);
         Record::create([
             'id' => 3,
@@ -53,7 +53,7 @@ class RecordsTableSeeder extends Seeder
             'status' => '已檢閱',
             'doctor_comment' => 'Good',
             'created_at' => '2022-11-13 08:00:00',
-            
+
             'category' => '手掌翻面'
         ]);
         Record::create([
@@ -66,8 +66,8 @@ class RecordsTableSeeder extends Seeder
             'status' => '未處理',
             'doctor_comment' => '',
             'created_at' => '2022-11-13 08:00:00',
-            
-            'category' => '手部拍打'
+
+            'category' => '手指捏握'
         ]);
         Record::create([
             'id' => 5,
@@ -79,8 +79,8 @@ class RecordsTableSeeder extends Seeder
             'status' => '待檢閱',
             'doctor_comment' => '',
             'created_at' => '2022-11-13 08:00:00',
-            
-            'category' => '手部捏握'
+
+            'category' => '手部抓握'
         ]);
         Record::create([
             'id' => 6,
@@ -92,7 +92,7 @@ class RecordsTableSeeder extends Seeder
             'status' => '已檢閱',
             'doctor_comment' => 'Good',
             'created_at' => '2022-11-13 08:00:00',
-            
+
             'category' => '手掌翻面'
         ]);
         Record::create([
@@ -105,8 +105,8 @@ class RecordsTableSeeder extends Seeder
             'status' => '未處理',
             'doctor_comment' => '',
             'created_at' => '2022-11-13 08:00:00',
-            
-            'category' => '手部拍打'
+
+            'category' => '手指捏握'
         ]);
         Record::create([
             'id' => 8,
@@ -118,8 +118,8 @@ class RecordsTableSeeder extends Seeder
             'status' => '待檢閱',
             'doctor_comment' => '',
             'created_at' => '2022-11-13 08:00:00',
-            
-            'category' => '手部捏握'
+
+            'category' => '手部抓握'
         ]);
         Record::create([
             'id' => 9,
@@ -131,7 +131,7 @@ class RecordsTableSeeder extends Seeder
             'status' => '已檢閱',
             'doctor_comment' => 'Good',
             'created_at' => '2022-11-13 08:00:00',
-            
+
             'category' => '手掌翻面'
         ]);
         Record::create([
@@ -142,7 +142,7 @@ class RecordsTableSeeder extends Seeder
             'status' => '未上傳',
             'doctor_comment' => '',
             'created_at' => '2022-11-13 08:00:00',
-            'category' => '手部拍打'
+            'category' => '手指捏握'
         ]);
         Record::create([
             'id' => 11,
@@ -152,7 +152,7 @@ class RecordsTableSeeder extends Seeder
             'status' => '未上傳',
             'doctor_comment' => '',
             'created_at' => '2022-11-13 08:00:00',
-            'category' => '手部捏握'
+            'category' => '手部抓握'
         ]);
         Record::create([
             'id' => 12,
@@ -172,7 +172,7 @@ class RecordsTableSeeder extends Seeder
             'status' => '未上傳',
             'doctor_comment' => '',
             'created_at' => '2022-11-13 08:00:00',
-            'category' => '手部拍打'
+            'category' => '手指捏握'
         ]);
         Record::create([
             'id' => 14,
@@ -182,7 +182,7 @@ class RecordsTableSeeder extends Seeder
             'status' => '未上傳',
             'doctor_comment' => '',
             'created_at' => '2022-11-13 08:00:00',
-            'category' => '手部捏握'
+            'category' => '手部抓握'
         ]);
         Record::create([
             'id' => 15,

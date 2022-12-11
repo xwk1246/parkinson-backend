@@ -33,18 +33,19 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // general
     Route::get('user-info', [GeneralController::class, 'info']);
-    Route::get('assoc-record', [GeneralController::class, 'record']);
+    Route::get('assoc-record/{patientId?}', [GeneralController::class, 'record']);
     Route::get('video/{recordId}', [GeneralController::class, 'video']);
+    Route::post('/logout', [AuthController::class, 'logout']);
 
     // doctor
     Route::post('add-patient', [DoctorController::class, 'addPatient']);
     Route::post('assign-mission', [DoctorController::class, 'assign']);
-    Route::patch('update-comment',[DoctorController::class,'updateComment']);
+    Route::patch('update-comment', [DoctorController::class, 'updateComment']);
+    Route::post('/reset-password/{user}', [AuthController::class, 'reset']);
 
     // patient
     Route::post('upload-video', [PatientController::class, 'uploadVideo']);
     Route::post('upload-record', [PatientController::class, 'uploadRecord']);
-    Route::post('/logout', [AuthController::class, 'logout']);
 });
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);

@@ -51,7 +51,7 @@ class DoctorController extends Controller
         $validated['password'] = Hash::make($password);
         User::create($validated)->assignRole('patient');
 
-        return $password;
+        return response()->json(['password' => $password], 200);
     }
     /**
      * Store a mission nad some records due to categories.

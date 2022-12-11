@@ -28,11 +28,11 @@ class PatientController extends Controller
     {
         $validated = $request->validated();
         $datetime = Carbon::parse($validated['submit_time'])->toDatetimeString();
-        $record = Record::where('mission_id', $validated['mission_id'])->first();
+        $record = Record::where('mission_id', $validated['mission_id'])->where('category', $validated['category'])->first();
 
         $record->update([
             'location' => $validated['location'],
-            'submit_time' => $validated['submit_time'],
+            'submit_time' => $datetime,
             'category' => $validated['category'],
             'mission_id' => $validated['mission_id'],
             'status' => '未處理'
@@ -47,6 +47,4 @@ class PatientController extends Controller
         }
         return $record->load("media");
     }
-
-    
 }
