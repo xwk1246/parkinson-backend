@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\ResetPasswordRequest;
+use App\Http\Requests\UpdatePasswordRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -82,5 +83,19 @@ class AuthController extends Controller
         $newPassword = Str::random(8);
         $user->update(['password' => Hash::make($newPassword)]);
         return response()->json(['password' => $newPassword], 200);
+    }
+    public function updatePassword(UpdatePasswordRequest $request)
+    {
+        $validated = $request->validated();
+        $loginUser = $request->user();
+        /*if (Hash::check($validated['password'], $loginUser->password)) {
+            return response()->json(['message' => '密碼不可與上次重複'], 422);
+        }else if(strtolower($validated['password']) == $loginUser['personal_id']) {
+            return response()->json(['message' => '密碼不可與帳號相同'], 422);
+        }*/
+            $loginUser->update(['password' => Hash::make($validated['password'])]);
+            return response()->json(['message' => 'Change password successfully'], 200);
+        
+        
     }
 }
