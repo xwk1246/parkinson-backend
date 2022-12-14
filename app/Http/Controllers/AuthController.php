@@ -88,14 +88,7 @@ class AuthController extends Controller
     {
         $validated = $request->validated();
         $loginUser = $request->user();
-        /*if (Hash::check($validated['password'], $loginUser->password)) {
-            return response()->json(['message' => '密碼不可與上次重複'], 422);
-        }else if(strtolower($validated['password']) == $loginUser['personal_id']) {
-            return response()->json(['message' => '密碼不可與帳號相同'], 422);
-        }*/
-            $loginUser->update(['password' => Hash::make($validated['password'])]);
-            return response()->json(['message' => 'Change password successfully'], 200);
-        
-        
+        $loginUser->update(['password' => Hash::make($validated['password'])]);
+        return response()->json(['message' => 'Change password successfully'], 200);
     }
 }
