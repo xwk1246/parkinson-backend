@@ -26,7 +26,8 @@ class User extends Authenticatable
         'birthday',
         'personal_id',
         'phone',
-        'doctor_id'
+        'doctor_id',
+        'reset_pw'
     ];
 
     /**

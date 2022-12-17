@@ -25,8 +25,8 @@ class ResetPasswordRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+      return [
+          'reset_pw' => ['required', 'true']          
         ];
     }
 }
