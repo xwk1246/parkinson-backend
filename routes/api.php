@@ -35,7 +35,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('assoc-record/{patientId?}', [GeneralController::class, 'record']);
     Route::get('video/{recordId}', [GeneralController::class, 'video']);
     Route::post('/logout', [AuthController::class, 'logout']);
-    Route::put('update-password',[AuthController::class,'updatePassword']);
+    Route::post('update-password',[AuthController::class,'updatePassword']);
 
     // doctor
     Route::post('add-patient', [DoctorController::class, 'addPatient']);

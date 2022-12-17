@@ -33,7 +33,6 @@ class AuthController extends Controller
             'personal_id' => $validated['personal_id'],
             'password' => Hash::make($validated['password']),
             'doctor_id' => $validated['doctor_id'],
-            'reset_pw' => true
         ]);
         $user->assignRole(is_null($user->doctor_id) ? 'doctor' : 'patient');
 
@@ -89,7 +88,7 @@ class AuthController extends Controller
     {
         $validated = $request->validated();
         $loginUser = $request->user();
-        $loginUser->update(['password' => Hash::make($validated['password'])]);
-        return response()->json(['message' => 'Change password successfully'], 200);
+        $loginUser->update(['password' => Hash::make($validated['password']), 'reset_pw' => false]);
+        return response()->json(['message' => '變更密碼成功'], 200);
     }
 }
