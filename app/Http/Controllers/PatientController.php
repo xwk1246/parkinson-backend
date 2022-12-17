@@ -28,13 +28,6 @@ class PatientController extends Controller
         $datetime = Carbon::parse($validated['submit_time'])->toDatetimeString();
         $record = Record::where('mission_id', $validated['mission_id'])->where('category', $validated['category'])->first();
 
-        $record->update([
-            'location' => $validated['location'],
-            'submit_time' => $datetime,
-            'category' => $validated['category'],
-            'mission_id' => $validated['mission_id'],
-            'status' => '未處理'
-        ]);
         foreach ($validated['video'] as $key => $video) {
             try {
                 $record->addMedia(storage_path('app/tmp/' . $video['serverId'] . '/' . $video['filename']))->toMediaCollection('videos');
@@ -46,6 +39,15 @@ class PatientController extends Controller
                 return response()->json('file not exist on server please try again', 400);
             }
         }
+
+        $record->update([
+            'location' => $validated['location'],
+            'submit_time' => $datetime,
+            'category' => $validated['category'],
+            'mission_id' => $validated['mission_id'],
+            'status' => '未處理'
+        ]);
+
         return $record->load("media");
     }
 }
