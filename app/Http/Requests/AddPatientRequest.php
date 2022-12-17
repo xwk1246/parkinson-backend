@@ -39,7 +39,6 @@ class AddPatientRequest extends FormRequest
             'gender' => ['required', 'max:255', Rule::in(['male', 'female', 'unknown'])],
             'birthday' => ['required', 'max:255', 'date', 'before:today'],
             'personal_id' => ['required', 'max:15', Rule::unique(User::class)],
-            'reset_pw' => ['required', 'boolean']
         ];
     }
 }
