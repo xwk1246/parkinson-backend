@@ -33,6 +33,7 @@ class UsersTableSeeder extends Seeder
             'remember_token' => NULL,
             'created_at' => '2022-11-12 10:20:36',
             'updated_at' => '2022-11-12 10:20:36',
+            'reset_pw' => false,
         ])->assignRole('doctor');
 
         User::create([
@@ -49,6 +50,7 @@ class UsersTableSeeder extends Seeder
             'remember_token' => NULL,
             'created_at' => '2022-11-13 16:11:56',
             'updated_at' => '2022-11-13 16:11:56',
+            'reset_pw' => true,
         ])->assignRole('patient');
 
         User::create([
@@ -65,7 +67,9 @@ class UsersTableSeeder extends Seeder
             'remember_token' => NULL,
             'created_at' => '2022-11-15 03:22:42',
             'updated_at' => '2022-11-15 03:22:42',
+            'reset_pw' => true,
         ])->assignRole('patient');
+
         User::create([
             'id' => 4,
             'name' => 'Doctor 2',
@@ -80,7 +84,9 @@ class UsersTableSeeder extends Seeder
             'remember_token' => NULL,
             'created_at' => '2022-11-12 10:20:36',
             'updated_at' => '2022-11-12 10:20:36',
+            'reset_pw' => false,
         ])->assignRole('doctor');
+
         User::create([
             'id' => 5,
             'name' => 'Patient 3',
@@ -95,6 +101,7 @@ class UsersTableSeeder extends Seeder
             'remember_token' => NULL,
             'created_at' => '2022-11-15 03:22:42',
             'updated_at' => '2022-11-15 03:22:42',
+            'reset_pw' => true,
         ])->assignRole('patient');
         
     }

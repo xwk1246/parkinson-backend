@@ -32,7 +32,6 @@ class AuthController extends Controller
             'personal_id' => $validated['personal_id'],
             'password' => Hash::make($validated['password']),
             'doctor_id' => $validated['doctor_id'],
-            'reset_pw' => true
         ]);
         $user->assignRole(is_null($user->doctor_id) ? 'doctor' : 'patient');
 

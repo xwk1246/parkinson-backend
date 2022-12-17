@@ -25,7 +25,8 @@ class ResetPasswordRequest extends FormRequest
      */
     public function rules()
     {
-      return [
+        return [
+            //
         ];
     }
 }
