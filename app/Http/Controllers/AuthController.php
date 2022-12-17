@@ -31,7 +31,7 @@ class AuthController extends Controller
             'birthday' => $validated['birthday'],
             'personal_id' => $validated['personal_id'],
             'password' => Hash::make($validated['password']),
-            'doctor_id' => $validated['doctor_id']
+            'doctor_id' => $validated['doctor_id'],
         ]);
         $user->assignRole(is_null($user->doctor_id) ? 'doctor' : 'patient');
 
@@ -80,7 +80,7 @@ class AuthController extends Controller
     public function reset(ResetPasswordRequest $request, User $user)
     {
         $newPassword = Str::random(8);
-        $user->update(['password' => Hash::make($newPassword)]);
+        $user->update(['password' => Hash::make($newPassword), 'reset_pw' => true]);
         return response()->json(['password' => $newPassword], 200);
     }
 }
