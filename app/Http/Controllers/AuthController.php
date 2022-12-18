@@ -88,7 +88,7 @@ class AuthController extends Controller
     {
         $validated = $request->validated();
         $loginUser = $request->user();
-        $loginUser->update(['password' => Hash::make($validated['password']), 'reset_pw' => false]);
+        $loginUser->update(['password' => Hash::make($validated['new_password']), 'reset_pw' => false]);
         return response()->json(['message' => '變更密碼成功'], 200);
     }
 }

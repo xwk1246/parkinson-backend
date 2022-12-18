@@ -27,7 +27,13 @@ class UpdatePasswordRequest extends FormRequest
     public function rules()
     {
         return [
-            'password' => [
+            'old_password' => ['required', function ($attribute, $value, $fail) {
+                if (Hash::check($value, $this->user()->password) === false) {
+                    $fail('輸入了錯誤的舊密碼');
+                }
+              }
+            ],
+            'new_password' => [
                 'required', Password::min(8)->letters(), function ($attribute, $value, $fail) {
                     if ($value === $this->user()->personal_id) {
                         $fail('密碼不可與帳號相同');
