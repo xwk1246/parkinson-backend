@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\File;
 
 class UploadVideoRequest extends FormRequest
 {
@@ -23,6 +24,7 @@ class UploadVideoRequest extends FormRequest
      */
     public function rules()
     {
-        return ['video' => ['required', 'file']];
+        return ['video' => ['required', File::types(['avi', 'mp4', 'mov'])
+            ->max(100 * 1024)]];
     }
 }
