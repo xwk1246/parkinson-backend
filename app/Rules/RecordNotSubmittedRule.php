@@ -34,7 +34,7 @@ class RecordNotSubmittedRule implements Rule, DataAwareRule
     public function passes($attribute, $value)
     {
         // check correspond mission exist and video not submit
-        $recordExists = Record::where('mission_id', $this->data['mission_id'])->where('category', $this->data['category'])->whereNull('submit_time')->exists();
+        $recordExists = Record::where('mission_id', $this->data['mission_id'])->where('category', $this->data['category'])->whereNull('record_time')->exists();
         if ($recordExists) return true;
         return false;
     }

@@ -25,7 +25,7 @@ class PatientController extends Controller
     public function uploadRecord(UploadRecordRequest $request)
     {
         $validated = $request->validated();
-        $datetime = Carbon::parse($validated['submit_time'])->toDatetimeString();
+        $datetime = Carbon::parse($validated['record_time'])->toDatetimeString();
         $record = Record::where('mission_id', $validated['mission_id'])->where('category', $validated['category'])->first();
 
         foreach ($validated['video'] as $key => $video) {
@@ -42,7 +42,7 @@ class PatientController extends Controller
 
         $record->update([
             'location' => $validated['location'],
-            'submit_time' => $datetime,
+            'record_time' => $datetime,
             'category' => $validated['category'],
             'mission_id' => $validated['mission_id'],
             'status' => '未處理'

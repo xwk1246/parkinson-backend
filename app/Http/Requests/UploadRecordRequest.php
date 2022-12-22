@@ -29,7 +29,7 @@ class UploadRecordRequest extends FormRequest
         return [
             'category' => ['required', Rule::in(['手指捏握', '手部抓握', '手掌翻面', '抬腳'])],
             'location' => ['required', 'string'],
-            'submit_time' => ['required', 'date'],
+            'record_time' => ['required', 'date'],
             'mission_id' => ['required', Rule::exists('missions', 'id'), new RecordNotSubmittedRule],
             'video' => ['required', 'array'],
         ];

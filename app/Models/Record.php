@@ -14,7 +14,7 @@ class Record extends Model implements HasMedia
     protected $fillable = [
         'user_id',
         'mission_id',
-        'submit_time',
+        'record_time',
         'category',
         'location',
         'result',
