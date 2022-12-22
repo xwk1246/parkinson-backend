@@ -45,11 +45,11 @@ class GeneralController extends Controller
                     return response()->json(['message' => 'The user you requested is not your patient'], 400);
                 }
             }else{
-                return $loginUser->load('patients.missions.records');
+                return $loginUser->load('patients.missions.records.media');
             }
         } else {
             //Patient
-            return $loginUser->load('missions.records');
+            return $loginUser->load('missions.records.media');
         }
     }
 
