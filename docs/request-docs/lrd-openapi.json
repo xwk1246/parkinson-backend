@@ -2020,7 +2020,12 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "password": {
+                                    "old_password": {
+                                        "type": "object",
+                                        "nullable": false,
+                                        "format": "object"
+                                    },
+                                    "new_password": {
                                         "type": "object",
                                         "nullable": false,
                                         "format": "object"
