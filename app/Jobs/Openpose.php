@@ -41,13 +41,33 @@ class Openpose implements ShouldQueue
 
         if ($shouldUseLabApi) {
             // Unfinished lab api calling.
-            $mediaItems = $record->getMedia();
+            $mediaItems = $record->getMedia('videos');
 
-            $response = Http::attach(
-                'video',
-                file_get_contents(storage_path('app/public/' . $mediaItems[0]->id . '/' . $mediaItems[0]->file_name)),
-                $mediaItems[0]->file_name
-            )->post('https://140.123.105.112:51004');
+            $stringArray = explode('.', $mediaItems[0]->file_name);
+            $mimetype = $stringArray[count($stringArray) - 1];
+
+            $typesString = array('手指捏握', '手部抓握', '手掌翻面', '抬腳');
+            $types = array('t25', 't24', 't26', 't23');
+
+            $filename = date('Ymd') . '_' . $mediaItems[0]->id . '_' . $types[array_search($record->category, $typesString)] . '.' . $mimetype;
+
+            echo($filename);
+
+            $response = Http::withoutVerifying()
+                ->timeout(300)
+                ->attach(
+                    'video',
+                    file_get_contents(storage_path('app/public/' . $mediaItems[0]->id . '/' . $mediaItems[0]->file_name)),
+                    $filename,
+                )
+                ->post('https://140.123.105.112:51003/upload/analyze', ['filename' => $filename]);
+
+            $result = $response->json();
+
+            $record->update([
+                'result' => json_encode($result),
+                'status' => '待檢閱',
+            ]);
         } else {
             $record->update([
                 'result' => '{"left":87,"right":87}',
