@@ -9,19 +9,15 @@
 * 醫生病患身份權限區隔
   
 ## Demo
-![image](https://github.com/xwk1246/parkinson-backend/assets/72861891/403aa978-9e67-4337-a6ef-8b22baeadb69)
 
-![image](https://github.com/xwk1246/parkinson-backend/assets/72861891/e2d0a763-06fc-42d6-9207-ff339b3a70f0)
+![截圖 2023-10-05 下午5 24 04](https://github.com/xwk1246/parkinson-backend/assets/72861891/b1d7054a-f07c-4fa3-805a-5ec94dbd7cc8)
+![截圖 2023-10-05 下午5 24 40](https://github.com/xwk1246/parkinson-backend/assets/72861891/46d861c6-9c31-4420-b04f-41f933b0d5ce)
+![截圖 2023-10-05 下午5 24 55](https://github.com/xwk1246/parkinson-backend/assets/72861891/e6d75b9a-13ac-4918-8cb1-d51876e35871)
+![截圖 2023-10-05 下午5 25 17](https://github.com/xwk1246/parkinson-backend/assets/72861891/ac2f6cbb-6128-402e-8f67-18adb9449a39)
+![截圖 2023-10-05 下午5 25 35](https://github.com/xwk1246/parkinson-backend/assets/72861891/033429d1-8bba-4239-b17e-db6cfedf0ce3)
+![截圖 2023-10-05 下午5 25 52](https://github.com/xwk1246/parkinson-backend/assets/72861891/35ba0425-258f-4dd0-a2b3-db2065a90c6e)
 
-![image](https://github.com/xwk1246/parkinson-backend/assets/72861891/6aa1a5cb-bb3f-428e-8be5-6970394ccd3f)
 
-![image](https://github.com/xwk1246/parkinson-backend/assets/72861891/fab7736a-5732-42e7-afb8-45f17a7fb07c)
-
-![image](https://github.com/xwk1246/parkinson-backend/assets/72861891/a8f53abf-eee8-47c8-b3a7-315e56156d9f)
-
-![image](https://github.com/xwk1246/parkinson-backend/assets/72861891/6f7ebb27-8299-4250-899a-37687261afbd)
-
-![image](https://github.com/xwk1246/parkinson-backend/assets/72861891/5a1ca4d1-f10e-4a0c-b366-44ed136608cb)
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
