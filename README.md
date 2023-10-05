@@ -1,3 +1,29 @@
+# 帕金森氏症雲端檢測系統-backend
+
+## 已完成功能
+* 使用者登入/註冊(access token驗證方式)
+* 醫生可指派檢測任務，病人上傳後列入檢測排程，有結果後醫生可給予評論回饋
+* 資料與檢測結果顯示介面
+* 平行影片處理：暫存待處理影片，依序送檢測API處理
+* 影片格式、流量限制：格式：avi, mov, mp4，流量：100MB
+* 醫生病患身份權限區隔
+  
+## Demo
+![image](https://github.com/xwk1246/parkinson-backend/assets/72861891/403aa978-9e67-4337-a6ef-8b22baeadb69)
+
+![image](https://github.com/xwk1246/parkinson-backend/assets/72861891/e2d0a763-06fc-42d6-9207-ff339b3a70f0)
+
+![image](https://github.com/xwk1246/parkinson-backend/assets/72861891/6aa1a5cb-bb3f-428e-8be5-6970394ccd3f)
+
+![image](https://github.com/xwk1246/parkinson-backend/assets/72861891/fab7736a-5732-42e7-afb8-45f17a7fb07c)
+
+![image](https://github.com/xwk1246/parkinson-backend/assets/72861891/a8f53abf-eee8-47c8-b3a7-315e56156d9f)
+
+![image](https://github.com/xwk1246/parkinson-backend/assets/72861891/6f7ebb27-8299-4250-899a-37687261afbd)
+
+![image](https://github.com/xwk1246/parkinson-backend/assets/72861891/5a1ca4d1-f10e-4a0c-b366-44ed136608cb)
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
